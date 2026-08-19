@@ -63,8 +63,7 @@ const games: Game[] = [
       "https://striker-game-studios.itch.io/forbidden-fear",
     coverImage:
       "https://img.itch.zone/aW1nLzE1MDk1MjM0LnBuZw==/315x250%23c/NsVH9S.png",
-    coverImageVertical:
-      "https://uc74ca7f3d65e9692659c9c118a7.previews.dropboxusercontent.com/p/thumb/ADGx3KAKkys4WRBu5nn0HmVLQN4VYMyhnRM6yhNHTr_gJlIch0P_zefZMgYEVaikSZYIA8Y5yAgOoumw6GFn5W4ZhtVQQrF0mFLim1fQHF5rlcm14MqLrRQ0CmWQ5sFJe1rQ-obcDA01fzC84uxxb_uXOk44MrGP4adZoYFqWORiIIxglqGIifLR4bsTNUVvH8gQnlHeT45JxsiylVLZMw9geIzM-GP2IQT1kFd3nys6GcY5uSvBubPfoAY1U905a_1g7UzSt0klxyH6xOcDa3ht2iinLdy-C16WzXTosoEB1VVWzUI3q_1n9yYJWbpJ4bV-jbZ1U8LWfO0dB0K6wLvegwRCkodDNI7Hv7JfgcgZaWEX8cLg2vtMbuFAjclE5YZpt1X8DYjcpaBk6kwb0co2/p.png?is_prewarmed=true",
+    coverImageVertical: "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787125434/ff_cover.png",
     // substitua pela URL da sua capa 720x1280 (9:16)
     screenshots: [
       "https://img.itch.zone/aW1hZ2UvMzc3NDIzLzE1NzIzMTAzLnBuZw==/original/xJac6h.png",
@@ -93,8 +92,7 @@ const games: Game[] = [
     itchUrl: "",
     coverImage:
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=700&h=450&fit=crop&auto=format",
-    coverImageVertical:
-      "https://ucdce0d67f6580ba9b0ba3332473.previews.dropboxusercontent.com/p/thumb/ADEPD-QI0dELg3kC_kDwaUQCQcMYrhrDGsAvi4oH5KN2O-O9AysVMIEN8rSgk8R5zT6Ek9GDM0F1qgahN1UbQQvuUmsRd73wsg2IHEC0Ec4JV0MAITqr7Mo7hne8FMICx70Nakva7zIJC9oB8Z252sAZI4ubvzLjkhyLQNDX0xaXj27alz53Y9crh2aqLVCJMjcNWAK9kE_dpWQDKicHKVAvEFxHxm4L-zlFjLYB7g-3Z6QJH0bsNvLr4-1LLb-aSlCRyFO6t0mHGRKx7Cjzx4LqPy7ralbwkW3TTPYRimimMEVjYwKsOyISpnZq6uqhzcYb4w4wdgJ_7eNYvmpZUXCEyqyaKoqPI6r5NHQMj_lE0Sz0OdXP59mKJHLmrv3IQaatQrU-rW9JJQrGBc5Gk6rMmjA2AyWWxkpCZC1ZLnrVlMGeqrUxraDtaCdqoucIuX119Lj0sSFdk37W8Bb6aWKf/p.png?is_prewarmed=true",
+    coverImageVertical: "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787125650/dt_cover.png",
     // substitua pela URL da sua capa 720x1280 (9:16)
     screenshots: [
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&h=340&fit=crop&auto=format",
