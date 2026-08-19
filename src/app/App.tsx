@@ -63,7 +63,7 @@ const games: Game[] = [
     coverImage:
       "https://img.itch.zone/aW1nLzE1MDk1MjM0LnBuZw==/315x250%23c/NsVH9S.png",
     coverImageVertical:
-      "https://img.itch.zone/aW1nLzE1MDk1MjM0LnBuZw==/315x250%23c/NsVH9S.png",
+      "https://www.dropbox.com/scl/fi/l4e4zooefryp6i7hsfww1/ff_cover.png?rlkey=de68qp5x63hp05rrn1813brt6&st=695zo4cf&dl=0",
     // substitua pela URL da sua capa 720x1280 (9:16)
     screenshots: [
       "https://img.itch.zone/aW1hZ2UvMzc3NDIzLzE1NzIzMTAzLnBuZw==/original/xJac6h.png",
@@ -493,7 +493,7 @@ function GameModal({ game, onClose }: { game: Game | null; onClose: () => void }
           >
             {/* ── LEFT: vertical cover 9:16 ── */}
             <div className="relative flex-shrink-0 bg-secondary overflow-hidden"
-              style={{ width: "clamp(160px, 22vw, 260px)", aspectRatio: "9 / 16" }}
+              style={{ width: "clamp(180px, 25vw, 300px)", aspectRatio: "1360 / 2048" }}
             >
               <img
                 src={verticalSrc}
