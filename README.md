@@ -1,1 +1,1 @@
-https://cjoseph-47.github.io/strikergamestudios/
+cjoseph-47.github.io/strikergamestudios/
