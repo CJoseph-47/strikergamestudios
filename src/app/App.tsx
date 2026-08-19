@@ -66,9 +66,9 @@ const games: Game[] = [
       "https://img.itch.zone/aW1nLzE1MDk1MjM0LnBuZw==/315x250%23c/NsVH9S.png",
     // substitua pela URL da sua capa 720x1280 (9:16)
     screenshots: [
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=340&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=600&h=340&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1614294149010-950b698f72c0?w=600&h=340&fit=crop&auto=format",
+      "https://img.itch.zone/aW1hZ2UvMzc3NDIzLzE1NzIzMTAzLnBuZw==/original/xJac6h.png",
+      "https://img.itch.zone/aW1hZ2UvMzc3NDIzLzcyMDY1OTcucG5n/original/kPFxCt.png",
+      "https://img.itch.zone/aW1hZ2UvMzc3NDIzLzcyMDY2MDIucG5n/original/FLZTS1.png",
     ],
     icon: <Ghost className="w-4 h-4" />,
   },
@@ -498,8 +498,7 @@ function GameModal({ game, onClose }: { game: Game | null; onClose: () => void }
               <img
                 src={verticalSrc}
                 alt={`${game.title} — capa`}
-                className="w-full h-full object-cover opacity-85"
-                style={{ aspectRatio: "9 / 16" }}
+                className="w-full h-full object-contain opacity-85"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
