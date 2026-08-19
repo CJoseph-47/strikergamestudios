@@ -59,11 +59,12 @@ const games: Game[] = [
     },
     genre: ["Horror", "RPG"],
     status: "dev",
-    itchUrl: "https://striker-game-studios.itch.io/forbidden-fear",
+    itchUrl:
+      "https://striker-game-studios.itch.io/forbidden-fear",
     coverImage:
       "https://img.itch.zone/aW1nLzE1MDk1MjM0LnBuZw==/315x250%23c/NsVH9S.png",
     coverImageVertical:
-      "https://www.dropbox.com/scl/fi/l4e4zooefryp6i7hsfww1/ff_cover.png?rlkey=de68qp5x63hp05rrn1813brt6&st=695zo4cf&dl=0",
+      "https://uc74ca7f3d65e9692659c9c118a7.previews.dropboxusercontent.com/p/thumb/ADGx3KAKkys4WRBu5nn0HmVLQN4VYMyhnRM6yhNHTr_gJlIch0P_zefZMgYEVaikSZYIA8Y5yAgOoumw6GFn5W4ZhtVQQrF0mFLim1fQHF5rlcm14MqLrRQ0CmWQ5sFJe1rQ-obcDA01fzC84uxxb_uXOk44MrGP4adZoYFqWORiIIxglqGIifLR4bsTNUVvH8gQnlHeT45JxsiylVLZMw9geIzM-GP2IQT1kFd3nys6GcY5uSvBubPfoAY1U905a_1g7UzSt0klxyH6xOcDa3ht2iinLdy-C16WzXTosoEB1VVWzUI3q_1n9yYJWbpJ4bV-jbZ1U8LWfO0dB0K6wLvegwRCkodDNI7Hv7JfgcgZaWEX8cLg2vtMbuFAjclE5YZpt1X8DYjcpaBk6kwb0co2/p.png?is_prewarmed=true",
     // substitua pela URL da sua capa 720x1280 (9:16)
     screenshots: [
       "https://img.itch.zone/aW1hZ2UvMzc3NDIzLzE1NzIzMTAzLnBuZw==/original/xJac6h.png",
@@ -116,8 +117,12 @@ export default function App() {
     filter === "all" ? true : g.status === filter,
   );
 
-  const launchedCount = games.filter((g) => g.status === "launched").length;
-  const devCount = games.filter((g) => g.status === "dev").length;
+  const launchedCount = games.filter(
+    (g) => g.status === "launched",
+  ).length;
+  const devCount = games.filter(
+    (g) => g.status === "dev",
+  ).length;
 
   return (
     <div
@@ -167,7 +172,10 @@ export default function App() {
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-1.5 text-primary hover:text-primary/80 transition-colors"
-              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "12px" }}
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: "12px",
+              }}
             >
               itch.io
               <ExternalLink className="w-3 h-3" />
@@ -182,7 +190,10 @@ export default function App() {
           <div>
             <p
               className="text-primary mb-5 tracking-[0.35em] uppercase"
-              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "11px" }}
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: "11px",
+              }}
             >
               ∕∕ Desenvolvedor Independente
             </p>
@@ -197,8 +208,9 @@ export default function App() {
               esquecer.
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-              Criando experiências indie únicas — atmosféricas, narrativas e cheias
-              de personalidade. Cada jogo começa com uma pergunta que não me sai da cabeça.
+              Criando experiências indie únicas — atmosféricas,
+              narrativas e cheias de personalidade. Cada jogo
+              começa com uma pergunta que não me sai da cabeça.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mt-8">
@@ -207,7 +219,11 @@ export default function App() {
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 text-sm tracking-wider hover:bg-primary/80 transition-colors"
-                style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 600, letterSpacing: "0.1em" }}
+                style={{
+                  fontFamily: "'Rajdhani', sans-serif",
+                  fontWeight: 600,
+                  letterSpacing: "0.1em",
+                }}
               >
                 Ver no itch.io
                 <ExternalLink className="w-4 h-4" />
@@ -226,13 +242,18 @@ export default function App() {
             <div className="flex-1 lg:flex-none p-5 bg-card border-b border-border">
               <div
                 className="text-4xl text-primary mb-1"
-                style={{ fontFamily: "'Russo One', sans-serif" }}
+                style={{
+                  fontFamily: "'Russo One', sans-serif",
+                }}
               >
                 {launchedCount}
               </div>
               <div
                 className="text-muted-foreground uppercase tracking-widest"
-                style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "10px" }}
+                style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: "10px",
+                }}
               >
                 Lançados
               </div>
@@ -240,13 +261,18 @@ export default function App() {
             <div className="flex-1 lg:flex-none p-5 bg-card">
               <div
                 className="text-4xl text-accent mb-1"
-                style={{ fontFamily: "'Russo One', sans-serif" }}
+                style={{
+                  fontFamily: "'Russo One', sans-serif",
+                }}
               >
                 {devCount}
               </div>
               <div
                 className="text-muted-foreground uppercase tracking-widest"
-                style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "10px" }}
+                style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: "10px",
+                }}
               >
                 Em Desenvolvimento
               </div>
@@ -256,7 +282,10 @@ export default function App() {
       </section>
 
       {/* ─── GAMES ─── */}
-      <section id="jogos" className="relative z-10 max-w-6xl mx-auto px-6 pb-24">
+      <section
+        id="jogos"
+        className="relative z-10 max-w-6xl mx-auto px-6 pb-24"
+      >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-6 border-b border-border">
           <h2
             className="text-2xl tracking-wide"
@@ -266,26 +295,34 @@ export default function App() {
           </h2>
 
           <div className="flex gap-px bg-secondary/60 border border-border p-px">
-            {(["all", "launched", "dev"] as Filter[]).map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`px-4 py-2 text-xs tracking-wider transition-all cursor-pointer ${
-                  filter === f
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
-                }`}
-                style={{ fontFamily: "'JetBrains Mono', monospace" }}
-              >
-                {filterLabels[f]}
-              </button>
-            ))}
+            {(["all", "launched", "dev"] as Filter[]).map(
+              (f) => (
+                <button
+                  key={f}
+                  onClick={() => setFilter(f)}
+                  className={`px-4 py-2 text-xs tracking-wider transition-all cursor-pointer ${
+                    filter === f
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                  }`}
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                  }}
+                >
+                  {filterLabels[f]}
+                </button>
+              ),
+            )}
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {filtered.map((game) => (
-            <GameCard key={game.id} game={game} onOpen={() => setSelected(game)} />
+            <GameCard
+              key={game.id}
+              game={game}
+              onOpen={() => setSelected(game)}
+            />
           ))}
         </div>
 
@@ -302,7 +339,8 @@ export default function App() {
           <div className="flex items-center gap-2">
             <Gamepad2 className="w-4 h-4 text-primary/50" />
             <span className="text-muted-foreground text-sm">
-              © 2026 Striker Game Studios — feito com paixão e muita cafeína
+              © 2026 Striker Game Studios — feito com paixão e
+              muita cafeína
             </span>
           </div>
           <a
@@ -310,7 +348,9 @@ export default function App() {
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-1.5 text-primary hover:text-primary/70 transition-colors text-sm"
-            style={{ fontFamily: "'JetBrains Mono', monospace" }}
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+            }}
           >
             Striker Game Studios
             <ExternalLink className="w-3.5 h-3.5" />
@@ -319,13 +359,22 @@ export default function App() {
       </footer>
 
       {/* ─── MODAL ─── */}
-      <GameModal game={selected} onClose={() => setSelected(null)} />
+      <GameModal
+        game={selected}
+        onClose={() => setSelected(null)}
+      />
     </div>
   );
 }
 
 /* ─── CARD ─── */
-function GameCard({ game, onOpen }: { game: Game; onOpen: () => void }) {
+function GameCard({
+  game,
+  onOpen,
+}: {
+  game: Game;
+  onOpen: () => void;
+}) {
   const isLaunched = game.status === "launched";
 
   return (
@@ -346,7 +395,9 @@ function GameCard({ game, onOpen }: { game: Game; onOpen: () => void }) {
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
           <span
             className="bg-background/80 backdrop-blur-sm border border-primary/40 text-primary px-4 py-2 text-xs tracking-widest uppercase flex items-center gap-2"
-            style={{ fontFamily: "'JetBrains Mono', monospace" }}
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+            }}
           >
             <Info className="w-3.5 h-3.5" />
             Ver detalhes
@@ -361,11 +412,15 @@ function GameCard({ game, onOpen }: { game: Game; onOpen: () => void }) {
                 ? "bg-emerald-950/90 text-emerald-400 border-emerald-700/40"
                 : "bg-amber-950/90 text-amber-400 border-amber-700/40"
             }`}
-            style={{ fontFamily: "'JetBrains Mono', monospace" }}
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+            }}
           >
             <span
               className={`w-1.5 h-1.5 rounded-full ${
-                isLaunched ? "bg-emerald-400" : "bg-amber-400 animate-pulse"
+                isLaunched
+                  ? "bg-emerald-400"
+                  : "bg-amber-400 animate-pulse"
               }`}
             />
             {isLaunched ? "Lançado" : "Em Desenvolvimento"}
@@ -376,7 +431,9 @@ function GameCard({ game, onOpen }: { game: Game; onOpen: () => void }) {
           <div className="absolute top-3 right-3">
             <span
               className="text-muted-foreground/80 text-[10px]"
-              style={{ fontFamily: "'JetBrains Mono', monospace" }}
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+              }}
             >
               {game.year}
             </span>
@@ -395,7 +452,9 @@ function GameCard({ game, onOpen }: { game: Game; onOpen: () => void }) {
             <span
               key={g}
               className="text-[10px] text-primary/60 border border-primary/15 px-2 py-0.5 tracking-wider"
-              style={{ fontFamily: "'JetBrains Mono', monospace" }}
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+              }}
             >
               {g}
             </span>
@@ -416,7 +475,10 @@ function GameCard({ game, onOpen }: { game: Game; onOpen: () => void }) {
 
         <p
           className="text-muted-foreground text-sm italic mb-3"
-          style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 500 }}
+          style={{
+            fontFamily: "'Rajdhani', sans-serif",
+            fontWeight: 500,
+          }}
         >
           {game.tagline}
         </p>
@@ -436,7 +498,11 @@ function GameCard({ game, onOpen }: { game: Game; onOpen: () => void }) {
                 ? "border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground"
                 : "border-amber-700/40 text-amber-400 hover:bg-amber-950/60"
             }`}
-            style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 600, letterSpacing: "0.1em" }}
+            style={{
+              fontFamily: "'Rajdhani', sans-serif",
+              fontWeight: 600,
+              letterSpacing: "0.1em",
+            }}
           >
             {isLaunched ? "Jogar no itch.io" : "Ver no itch.io"}
             <ExternalLink className="w-3.5 h-3.5" />
@@ -445,7 +511,11 @@ function GameCard({ game, onOpen }: { game: Game; onOpen: () => void }) {
           <button
             onClick={onOpen}
             className="inline-flex items-center gap-2 px-4 py-2 text-xs tracking-wider border border-border text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-all duration-200 cursor-pointer"
-            style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 600, letterSpacing: "0.1em" }}
+            style={{
+              fontFamily: "'Rajdhani', sans-serif",
+              fontWeight: 600,
+              letterSpacing: "0.1em",
+            }}
           >
             <Info className="w-3.5 h-3.5" />
             Detalhes
@@ -457,15 +527,45 @@ function GameCard({ game, onOpen }: { game: Game; onOpen: () => void }) {
 }
 
 /* ─── MODAL ─── */
-const sysReqRows: { key: keyof SystemRequirements; label: string; icon: React.ReactNode }[] = [
-  { key: "os", label: "Sistema Operacional", icon: <Monitor className="w-4 h-4" /> },
-  { key: "processor", label: "Processador", icon: <Cpu className="w-4 h-4" /> },
-  { key: "memory", label: "Memória RAM", icon: <MemoryStick className="w-4 h-4" /> },
-  { key: "graphics", label: "Placa de Vídeo", icon: <Tv className="w-4 h-4" /> },
-  { key: "storage", label: "Armazenamento", icon: <HardDrive className="w-4 h-4" /> },
+const sysReqRows: {
+  key: keyof SystemRequirements;
+  label: string;
+  icon: React.ReactNode;
+}[] = [
+  {
+    key: "os",
+    label: "Sistema Operacional",
+    icon: <Monitor className="w-4 h-4" />,
+  },
+  {
+    key: "processor",
+    label: "Processador",
+    icon: <Cpu className="w-4 h-4" />,
+  },
+  {
+    key: "memory",
+    label: "Memória RAM",
+    icon: <MemoryStick className="w-4 h-4" />,
+  },
+  {
+    key: "graphics",
+    label: "Placa de Vídeo",
+    icon: <Tv className="w-4 h-4" />,
+  },
+  {
+    key: "storage",
+    label: "Armazenamento",
+    icon: <HardDrive className="w-4 h-4" />,
+  },
 ];
 
-function GameModal({ game, onClose }: { game: Game | null; onClose: () => void }) {
+function GameModal({
+  game,
+  onClose,
+}: {
+  game: Game | null;
+  onClose: () => void;
+}) {
   const [activeShot, setActiveShot] = useState<number>(0);
 
   useEffect(() => {
@@ -474,10 +574,16 @@ function GameModal({ game, onClose }: { game: Game | null; onClose: () => void }
 
   if (!game) return null;
   const isLaunched = game.status === "launched";
-  const verticalSrc = game.coverImageVertical || game.coverImage;
+  const verticalSrc =
+    game.coverImageVertical || game.coverImage;
 
   return (
-    <Dialog.Root open={!!game} onOpenChange={(open) => { if (!open) onClose(); }}>
+    <Dialog.Root
+      open={!!game}
+      onOpenChange={(open) => {
+        if (!open) onClose();
+      }}
+    >
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-40 bg-black/85 backdrop-blur-sm" />
         <Dialog.Content
@@ -487,13 +593,17 @@ function GameModal({ game, onClose }: { game: Game | null; onClose: () => void }
           onClick={onClose}
         >
           <div
-            className="relative w-full max-w-4xl bg-card border border-border flex flex-col md:flex-row overflow-hidden"
+            className="relative w-full max-w-5xl bg-card border border-border flex flex-col md:flex-row overflow-hidden"
             style={{ maxHeight: "90vh" }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* ── LEFT: vertical cover 9:16 ── */}
-            <div className="relative flex-shrink-0 bg-secondary overflow-hidden"
-              style={{ width: "clamp(180px, 25vw, 300px)", aspectRatio: "1360 / 2048" }}
+            <div
+              className="relative flex-shrink-0 bg-secondary overflow-hidden"
+              style={{
+                width: "clamp(240px, 32vw, 350px)",
+                aspectRatio: "1360 / 2048",
+              }}
             >
               <img
                 src={verticalSrc}
@@ -510,159 +620,191 @@ function GameModal({ game, onClose }: { game: Game | null; onClose: () => void }
                       ? "bg-emerald-950/95 text-emerald-400 border-emerald-700/40"
                       : "bg-amber-950/95 text-amber-400 border-amber-700/40"
                   }`}
-                  style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                  }}
                 >
                   <span
                     className={`w-1.5 h-1.5 rounded-full ${
-                      isLaunched ? "bg-emerald-400" : "bg-amber-400 animate-pulse"
+                      isLaunched
+                        ? "bg-emerald-400"
+                        : "bg-amber-400 animate-pulse"
                     }`}
                   />
-                  {isLaunched ? "Lançado" : "Em Desenvolvimento"}
+                  {isLaunched
+                    ? "Lançado"
+                    : "Em Desenvolvimento"}
                 </span>
               </div>
             </div>
 
             {/* ── RIGHT: scrollable info ── */}
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-              {/* Fixed header with close button */}
-              <div className="flex-shrink-0 flex justify-end px-4 py-3 border-b border-border bg-card">
-                <Dialog.Close asChild>
-                  <button className="w-8 h-8 flex items-center justify-center border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors cursor-pointer">
-                    <X className="w-4 h-4" />
-                  </button>
-                </Dialog.Close>
-              </div>
+              {/* Botão X flutuante no canto superior direito */}
+              <Dialog.Close asChild>
+                <button className="absolute top-6 right-6 z-10 w-8 h-8 flex items-center justify-center border border-border bg-card/80 backdrop-blur-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors cursor-pointer rounded-md">
+                  <X className="w-4 h-4" />
+                </button>
+              </Dialog.Close>
 
               <div className="flex-1 overflow-y-auto">
-              <div className="p-6">
-                {/* Genre tags */}
-                <div className="flex flex-wrap gap-1.5 mb-3 pr-8">
-                  {game.genre.map((g) => (
-                    <span
-                      key={g}
-                      className="text-[10px] text-primary/60 border border-primary/15 px-2 py-0.5 tracking-wider"
-                      style={{ fontFamily: "'JetBrains Mono', monospace" }}
-                    >
-                      {g}
-                    </span>
-                  ))}
-                </div>
+                <div className="p-6">
+                  {/* Genre tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-3 pr-8">
+                    {game.genre.map((g) => (
+                      <span
+                        key={g}
+                        className="text-[10px] text-primary/60 border border-primary/15 px-2 py-0.5 tracking-wider"
+                        style={{
+                          fontFamily:
+                            "'JetBrains Mono', monospace",
+                        }}
+                      >
+                        {g}
+                      </span>
+                    ))}
+                  </div>
 
-                <Dialog.Title asChild>
-                  <h2
-                    className="text-2xl leading-tight mb-1"
-                    style={{ fontFamily: "'Russo One', sans-serif" }}
+                  <Dialog.Title asChild>
+                    <h2
+                      className="text-2xl leading-tight mb-1"
+                      style={{
+                        fontFamily: "'Russo One', sans-serif",
+                      }}
+                    >
+                      {game.title}
+                    </h2>
+                  </Dialog.Title>
+
+                  <p
+                    className="text-muted-foreground italic mb-4"
+                    style={{
+                      fontFamily: "'Rajdhani', sans-serif",
+                      fontWeight: 500,
+                      fontSize: "14px",
+                    }}
                   >
-                    {game.title}
-                  </h2>
-                </Dialog.Title>
+                    {game.tagline}
+                  </p>
 
-                <p
-                  className="text-muted-foreground italic mb-4"
-                  style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 500, fontSize: "14px" }}
-                >
-                  {game.tagline}
-                </p>
+                  {/* Description */}
+                  <p className="text-foreground/75 text-sm leading-relaxed mb-5">
+                    {game.fullDescription || game.description}
+                  </p>
 
-                {/* Description */}
-                <p className="text-foreground/75 text-sm leading-relaxed mb-5">
-                  {game.fullDescription || game.description}
-                </p>
+                  {/* itch.io button */}
+                  <a
+                    href={game.itchUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`inline-flex items-center gap-2 px-5 py-2.5 text-xs tracking-wider transition-all duration-200 border mb-6 ${
+                      isLaunched
+                        ? "bg-primary text-primary-foreground border-primary hover:bg-primary/80"
+                        : "border-amber-700/40 text-amber-400 hover:bg-amber-950/60"
+                    }`}
+                    style={{
+                      fontFamily: "'Rajdhani', sans-serif",
+                      fontWeight: 600,
+                      letterSpacing: "0.12em",
+                    }}
+                  >
+                    {isLaunched
+                      ? "Jogar no itch.io"
+                      : "Acompanhar no itch.io"}
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
 
-                {/* itch.io button */}
-                <a
-                  href={game.itchUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`inline-flex items-center gap-2 px-5 py-2.5 text-xs tracking-wider transition-all duration-200 border mb-6 ${
-                    isLaunched
-                      ? "bg-primary text-primary-foreground border-primary hover:bg-primary/80"
-                      : "border-amber-700/40 text-amber-400 hover:bg-amber-950/60"
-                  }`}
-                  style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 600, letterSpacing: "0.12em" }}
-                >
-                  {isLaunched ? "Jogar no itch.io" : "Acompanhar no itch.io"}
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-
-                {/* Screenshots */}
-                {game.screenshots && game.screenshots.length > 0 && (
-                  <div className="mb-6">
-                    <p
-                      className="text-xs tracking-[0.25em] uppercase text-muted-foreground mb-3 border-b border-border pb-2"
-                      style={{ fontFamily: "'JetBrains Mono', monospace" }}
-                    >
-                      ∕∕ Screenshots
-                    </p>
-
-                    {/* Main screenshot */}
-                    <div className="relative aspect-video bg-secondary overflow-hidden mb-2 border border-border">
-                      <img
-                        src={game.screenshots[activeShot]}
-                        alt={`Screenshot ${activeShot + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-
-                    {/* Thumbnails */}
-                    <div className="flex gap-2 overflow-x-auto pb-1">
-                      {game.screenshots.map((src, i) => (
-                        <button
-                          key={i}
-                          onClick={() => setActiveShot(i)}
-                          className={`flex-shrink-0 w-20 h-14 overflow-hidden border transition-all cursor-pointer ${
-                            activeShot === i
-                              ? "border-primary"
-                              : "border-border opacity-50 hover:opacity-80"
-                          }`}
+                  {/* Screenshots */}
+                  {game.screenshots &&
+                    game.screenshots.length > 0 && (
+                      <div className="mb-6">
+                        <p
+                          className="text-xs tracking-[0.25em] uppercase text-muted-foreground mb-3 border-b border-border pb-2"
+                          style={{
+                            fontFamily:
+                              "'JetBrains Mono', monospace",
+                          }}
                         >
+                          ∕∕ Screenshots
+                        </p>
+
+                        {/* Main screenshot */}
+                        <div className="relative aspect-video bg-secondary overflow-hidden mb-2 border border-border">
                           <img
-                            src={src}
-                            alt={`Thumb ${i + 1}`}
+                            src={game.screenshots[activeShot]}
+                            alt={`Screenshot ${activeShot + 1}`}
                             className="w-full h-full object-cover"
                           />
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                        </div>
 
-                {/* System requirements */}
-                {game.systemRequirements && (
-                  <div>
-                    <p
-                      className="text-xs tracking-[0.25em] uppercase text-muted-foreground mb-3 border-b border-border pb-2"
-                      style={{ fontFamily: "'JetBrains Mono', monospace" }}
-                    >
-                      ∕∕ Requisitos de Sistema
-                    </p>
+                        {/* Thumbnails */}
+                        <div className="flex gap-2 overflow-x-auto pb-1">
+                          {game.screenshots.map((src, i) => (
+                            <button
+                              key={i}
+                              onClick={() => setActiveShot(i)}
+                              className={`flex-shrink-0 w-20 h-14 overflow-hidden border transition-all cursor-pointer ${
+                                activeShot === i
+                                  ? "border-primary"
+                                  : "border-border opacity-50 hover:opacity-80"
+                              }`}
+                            >
+                              <img
+                                src={src}
+                                alt={`Thumb ${i + 1}`}
+                                className="w-full h-full object-cover"
+                              />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
-                    <div className="border border-border divide-y divide-border">
-                      {sysReqRows.map(({ key, label, icon }) =>
-                        game.systemRequirements?.[key] ? (
-                          <div
-                            key={key}
-                            className="grid grid-cols-[auto_1fr] gap-3 px-3 py-2.5 hover:bg-secondary/30 transition-colors"
-                          >
-                            <div className="flex items-center gap-2 text-muted-foreground w-40">
-                              <span className="text-primary/50 flex-shrink-0">{icon}</span>
-                              <span
-                                className="text-[10px] tracking-wide leading-tight"
-                                style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                  {/* System requirements */}
+                  {game.systemRequirements && (
+                    <div>
+                      <p
+                        className="text-xs tracking-[0.25em] uppercase text-muted-foreground mb-3 border-b border-border pb-2"
+                        style={{
+                          fontFamily:
+                            "'JetBrains Mono', monospace",
+                        }}
+                      >
+                        ∕∕ Requisitos de Sistema
+                      </p>
+
+                      <div className="border border-border divide-y divide-border">
+                        {sysReqRows.map(
+                          ({ key, label, icon }) =>
+                            game.systemRequirements?.[key] ? (
+                              <div
+                                key={key}
+                                className="grid grid-cols-[auto_1fr] gap-3 px-3 py-2.5 hover:bg-secondary/30 transition-colors"
                               >
-                                {label}
-                              </span>
-                            </div>
-                            <span className="text-xs text-foreground/80 self-center">
-                              {game.systemRequirements[key]}
-                            </span>
-                          </div>
-                        ) : null
-                      )}
+                                <div className="flex items-center gap-2 text-muted-foreground w-40">
+                                  <span className="text-primary/50 flex-shrink-0">
+                                    {icon}
+                                  </span>
+                                  <span
+                                    className="text-[10px] tracking-wide leading-tight"
+                                    style={{
+                                      fontFamily:
+                                        "'JetBrains Mono', monospace",
+                                    }}
+                                  >
+                                    {label}
+                                  </span>
+                                </div>
+                                <span className="text-xs text-foreground/80 self-center">
+                                  {game.systemRequirements[key]}
+                                </span>
+                              </div>
+                            ) : null,
+                        )}
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
