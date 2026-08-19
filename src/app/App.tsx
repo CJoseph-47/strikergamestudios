@@ -572,6 +572,27 @@ function GameModal({
     setActiveShot(0);
   }, [game?.id]);
 
+  useEffect(() => {
+    if (
+      !game ||
+      !game.screenshots ||
+      game.screenshots.length <= 1
+    )
+      return;
+
+    const interval = setInterval(() => {
+      setActiveShot(
+        (prev) => (prev + 1) % game.screenshots.length,
+      );
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [game]);
+
+  useEffect(() => {
+    setActiveShot(0);
+  }, [game?.id]);
+
   if (!game) return null;
   const isLaunched = game.status === "launched";
   const verticalSrc =
@@ -593,26 +614,30 @@ function GameModal({
           onClick={onClose}
         >
           <div
-            className="relative w-full max-w-5xl bg-card border border-border flex flex-col md:flex-row overflow-hidden"
+            className="relative w-full max-w-7xl bg-card border border-border flex flex-col md:flex-row overflow-hidden"
             style={{ maxHeight: "90vh" }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* ── LEFT: vertical cover 9:16 ── */}
+            {/* ── LEFT: vertical cover (infalível, sem espaço e sem sumir) ── */}
             <div
-              className="relative flex-shrink-0 bg-secondary overflow-hidden"
+              className="relative flex-shrink-0 bg-secondary overflow-hidden aspect-[1360/2048] md:aspect-auto"
               style={{
-                width: "clamp(240px, 32vw, 350px)",
-                aspectRatio: "1360 / 2048",
+                // Largura EXPLÍCITA — o painel nunca colapsa
+                width:
+                  "min(clamp(240px, 44vw, 800px), calc(90vh * 0.664))",
               }}
             >
               <img
                 src={verticalSrc}
                 alt={`${game.title} — capa`}
-                className="w-full h-full object-contain opacity-85"
+                className="absolute inset-0 w-full h-full object-cover opacity-85"
+                onError={(e) => {
+                  e.currentTarget.src = game.coverImage; // nunca fica vazio
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-              {/* Status badge over cover */}
+              {/* Status badge — mantém igual */}
               <div className="absolute bottom-3 left-3">
                 <span
                   className={`inline-flex items-center gap-1.5 px-2 py-1 text-[10px] tracking-[0.2em] uppercase border ${
@@ -729,12 +754,24 @@ function GameModal({
                         </p>
 
                         {/* Main screenshot */}
-                        <div className="relative aspect-video bg-secondary overflow-hidden mb-2 border border-border">
-                          <img
-                            src={game.screenshots[activeShot]}
-                            alt={`Screenshot ${activeShot + 1}`}
-                            className="w-full h-full object-cover"
-                          />
+                        <div className="relative w-full aspect-video overflow-hidden rounded-lg bg-black/40 border border-border group">
+                          <div
+                            className="flex w-full h-full transition-transform duration-500 ease-out"
+                            style={{
+                              transform: `translateX(-${activeShot * 100}%)`,
+                            }}
+                          >
+                            {game.screenshots.map(
+                              (src, index) => (
+                                <img
+                                  key={index}
+                                  src={src}
+                                  alt={`${game.title} screenshot ${index + 1}`}
+                                  className="w-full h-full object-cover flex-shrink-0"
+                                />
+                              ),
+                            )}
+                          </div>
                         </div>
 
                         {/* Thumbnails */}
