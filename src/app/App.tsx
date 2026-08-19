@@ -43,7 +43,7 @@ interface Game {
 
 const games: Game[] = [
   {
-    id: 2,
+    id: 1,
     title: "Forbidden Fear",
     tagline: "Você não está sozinho lá dentro",
     description:
@@ -73,7 +73,7 @@ const games: Game[] = [
     icon: <Ghost className="w-4 h-4" />,
   },
   {
-    id: 3,
+    id: 2,
     title: "Devil Tears",
     tagline: "Até o inferno tem suas cicatrizes",
     description:
@@ -89,15 +89,13 @@ const games: Game[] = [
     },
     genre: ["ARPG"],
     status: "dev",
-    itchUrl: "https://striker-game-studios.itch.io/forbidden-fear",
+    itchUrl: "",
     coverImage:
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=700&h=450&fit=crop&auto=format",
     coverImageVertical:
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=720&h=1280&fit=crop&auto=format",
+      "https://ucdce0d67f6580ba9b0ba3332473.previews.dropboxusercontent.com/p/thumb/ADEPD-QI0dELg3kC_kDwaUQCQcMYrhrDGsAvi4oH5KN2O-O9AysVMIEN8rSgk8R5zT6Ek9GDM0F1qgahN1UbQQvuUmsRd73wsg2IHEC0Ec4JV0MAITqr7Mo7hne8FMICx70Nakva7zIJC9oB8Z252sAZI4ubvzLjkhyLQNDX0xaXj27alz53Y9crh2aqLVCJMjcNWAK9kE_dpWQDKicHKVAvEFxHxm4L-zlFjLYB7g-3Z6QJH0bsNvLr4-1LLb-aSlCRyFO6t0mHGRKx7Cjzx4LqPy7ralbwkW3TTPYRimimMEVjYwKsOyISpnZq6uqhzcYb4w4wdgJ_7eNYvmpZUXCEyqyaKoqPI6r5NHQMj_lE0Sz0OdXP59mKJHLmrv3IQaatQrU-rW9JJQrGBc5Gk6rMmjA2AyWWxkpCZC1ZLnrVlMGeqrUxraDtaCdqoucIuX119Lj0sSFdk37W8Bb6aWKf/p.png?is_prewarmed=true",
     // substitua pela URL da sua capa 720x1280 (9:16)
     screenshots: [
-      "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=340&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=340&fit=crop&auto=format",
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&h=340&fit=crop&auto=format",
     ],
     icon: <Ghost className="w-4 h-4" />,
@@ -520,7 +518,7 @@ function GameModal({ game, onClose }: { game: Game | null; onClose: () => void }
                       isLaunched ? "bg-emerald-400" : "bg-amber-400 animate-pulse"
                     }`}
                   />
-                  {isLaunched ? "Lançado" : "Em Dev"}
+                  {isLaunched ? "Lançado" : "Em Desenvolvimento"}
                 </span>
               </div>
             </div>
