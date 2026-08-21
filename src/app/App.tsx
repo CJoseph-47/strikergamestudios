@@ -91,11 +91,13 @@ const games: Game[] = [
     status: "dev",
     itchUrl: "",
     coverImage:
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=700&h=450&fit=crop&auto=format",
+      "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787271275/dt_cover-square.png",
     coverImageVertical: "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787125650/dt_cover.png",
     // substitua pela URL da sua capa 720x1280 (9:16)
     screenshots: [
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&h=340&fit=crop&auto=format",
+      "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787273359/ui_mission-select.png",
+      "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787273330/ui_customize.png",
+      "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787273664/screenshot_gameplay.png",
     ],
     icon: <Ghost className="w-4 h-4" />,
   },
