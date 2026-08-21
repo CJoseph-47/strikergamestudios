@@ -49,7 +49,7 @@ const games: Game[] = [
     description:
       "Um antigo manicômio abandonado esconde segredos que deveriam ter permanecido enterrados.",
     fullDescription:
-      "Forbidden Fear é um jogo de horror psicológico em primeira pessoa ambientado em um manicômio abandonado há décadas. Ao explorar seus corredores decadentes, você descobre que os pacientes nunca realmente foram embora — e algo muito mais antigo os mantém presos ali. Resolva enigmas, fuja das entidades que habitam o local e descubra a verdade sombria por trás da instituição. Cada escolha importa. Cada som tem significado. Você vai descobrir o que aconteceu — mas vai conseguir sair com a sanidade intacta?",
+      "Forbidden Fear é um jogo de horror psicológico em um manicômio abandonado há décadas. Ao explorar seus corredores decadentes, você descobre que os pacientes nunca realmente foram embora e algo muito mais antigo os mantém presos ali. Resolva enigmas, fuja das entidades que habitam o local e descubra a verdade sombria por trás da instituição. Cada escolha importa. Cada som tem significado. Você vai descobrir o que aconteceu mas vai conseguir sair com a sanidade intacta?",
     systemRequirements: {
       os: "Windows 10 / 11 (64-bit)",
       processor: "Intel Core i3-4340 or better",
@@ -79,7 +79,7 @@ const games: Game[] = [
     description:
       "Um ARPG sombrio onde você empunha poderes demoníacos para enfrentar um mundo corrompido pela escuridão.",
     fullDescription:
-      "Devil Tears é um action RPG de perspectiva isométrica onde você joga como um ser entre dois mundos — humano o suficiente para sentir dor, demoníaco o suficiente para causar destruição. Em um reino corrompido por uma força ancestral, você deve dominar habilidades das trevas para sobreviver e descobrir sua verdadeira origem. Combate fluido, sistema de upgrades profundo e uma narrativa que não tem medo de ir a lugares sombrios.",
+      "Devil Tears é um action RPG de perspectiva isométrica onde você joga como um ser entre dois mundos humano o suficiente para sentir dor, demoníaco o suficiente para causar destruição. Em um reino corrompido por uma força ancestral, você deve dominar habilidades das trevas para sobreviver e descobrir sua verdadeira origem. Combate fluido, sistema de upgrades profundo e uma narrativa que não tem medo de ir a lugares sombrios.",
     systemRequirements: {
       os: "TBD",
       processor: "TBD",
@@ -208,7 +208,7 @@ export default function App() {
               esquecer.
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">
-              Criando experiências indie únicas — atmosféricas,
+              Criando experiências indie únicas atmosféricas,
               narrativas e cheias de personalidade. Cada jogo
               começa com uma pergunta que não me sai da cabeça.
             </p>
@@ -339,7 +339,7 @@ export default function App() {
           <div className="flex items-center gap-2">
             <Gamepad2 className="w-4 h-4 text-primary/50" />
             <span className="text-muted-foreground text-sm">
-              © 2026 Striker Game Studios — feito com paixão e
+              © 2026 Striker Game Studios. feito com paixão e
               muita cafeína
             </span>
           </div>
