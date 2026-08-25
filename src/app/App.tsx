@@ -63,7 +63,8 @@ const games: Game[] = [
       "https://striker-game-studios.itch.io/forbidden-fear",
     coverImage:
       "https://img.itch.zone/aW1nLzE1MDk1MjM0LnBuZw==/315x250%23c/NsVH9S.png",
-    coverImageVertical: "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787125434/ff_cover.png",
+    coverImageVertical:
+      "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787125434/ff_cover.png",
     // substitua pela URL da sua capa 720x1280 (9:16)
     screenshots: [
       "https://img.itch.zone/aW1hZ2UvMzc3NDIzLzE1NzIzMTAzLnBuZw==/original/xJac6h.png",
@@ -92,7 +93,8 @@ const games: Game[] = [
     itchUrl: "",
     coverImage:
       "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787271275/dt_cover-square.png",
-    coverImageVertical: "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787125650/dt_cover.png",
+    coverImageVertical:
+      "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787125650/dt_cover.png",
     // substitua pela URL da sua capa 720x1280 (9:16)
     screenshots: [
       "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787273359/ui_mission-select.png",
@@ -567,6 +569,7 @@ function GameModal({
   onClose: () => void;
 }) {
   const [activeShot, setActiveShot] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     setActiveShot(0);
@@ -576,7 +579,8 @@ function GameModal({
     if (
       !game ||
       !game.screenshots ||
-      game.screenshots.length <= 1
+      game.screenshots.length <= 1 ||
+      isPaused
     )
       return;
 
@@ -587,11 +591,7 @@ function GameModal({
     }, 3500);
 
     return () => clearInterval(interval);
-  }, [game]);
-
-  useEffect(() => {
-    setActiveShot(0);
-  }, [game?.id]);
+  }, [game, activeShot, isPaused]);
 
   if (!game) return null;
   const isLaunched = game.status === "launched";
@@ -754,7 +754,11 @@ function GameModal({
                         </p>
 
                         {/* Main screenshot */}
-                        <div className="relative w-full aspect-video overflow-hidden rounded-lg bg-black/40 border border-border group">
+                        <div
+  className="relative w-full aspect-video overflow-hidden rounded-lg bg-black/40 border border-border group"
+  onMouseEnter={() => setIsPaused(true)}
+  onMouseLeave={() => setIsPaused(false)}
+>
                           <div
                             className="flex w-full h-full transition-transform duration-500 ease-out"
                             style={{
