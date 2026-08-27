@@ -10,6 +10,9 @@ import {
   HardDrive,
   Tv,
   Info,
+  Pause,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import * as Dialog from "@radix-ui/react-dialog";
 
@@ -755,10 +758,12 @@ function GameModal({
 
                         {/* Main screenshot */}
                         <div
-  className="relative w-full aspect-video overflow-hidden rounded-lg bg-black/40 border border-border group"
-  onMouseEnter={() => setIsPaused(true)}
-  onMouseLeave={() => setIsPaused(false)}
->
+                          className="relative w-full aspect-video overflow-hidden rounded-lg bg-black/40 border border-border group"
+                          onMouseEnter={() => setIsPaused(true)}
+                          onMouseLeave={() =>
+                            setIsPaused(false)
+                          }
+                        >
                           <div
                             className="flex w-full h-full transition-transform duration-500 ease-out"
                             style={{
@@ -776,6 +781,50 @@ function GameModal({
                               ),
                             )}
                           </div>
+
+                          {/* Left arrow */}
+                          {game.screenshots.length > 1 && (
+                            <button
+                              onClick={() =>
+                                setActiveShot(
+                                  (prev) =>
+                                    (prev -
+                                      1 +
+                                      game.screenshots!
+                                        .length) %
+                                    game.screenshots!.length,
+                                )
+                              }
+                              className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full text-white/80 hover:text-white hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
+                            >
+                              <ChevronLeft className="w-5 h-5" />
+                            </button>
+                          )}
+
+                          {/* Right arrow */}
+                          {game.screenshots.length > 1 && (
+                            <button
+                              onClick={() =>
+                                setActiveShot(
+                                  (prev) =>
+                                    (prev + 1) %
+                                    game.screenshots!.length,
+                                )
+                              }
+                              className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full text-white/80 hover:text-white hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
+                            >
+                              <ChevronRight className="w-5 h-5" />
+                            </button>
+                          )}
+
+                          {/* Pause indicator */}
+                          {isPaused && (
+                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                              <div className="bg-black/60 backdrop-blur-sm rounded-full p-3">
+                                <Pause className="w-6 h-6 text-white/80" />
+                              </div>
+                            </div>
+                          )}
                         </div>
 
                         {/* Thumbnails */}
