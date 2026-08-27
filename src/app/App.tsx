@@ -92,10 +92,10 @@ const games: Game[] = [
     status: "dev",
     itchUrl: "",
     coverImage:
-      "https://res.cloudinary.com/e3wn4cfq/image/upload/q_auto,f_auto,w_800/dt_cover-square.png",
+      "https://res.cloudinary.com/e3wn4cfq/image/upload/c_scale,w_600/dpr_auto/q_auto/f_auto/dt_cover-square.png",
     coverImageVertical:
-      "https://res.cloudinary.com/e3wn4cfq/image/upload/q_auto,f_auto,w_800/dt_cover-portrait2.jpg",
-    // substitua pela URL da sua capa 720x1280 (9:16)
+      "https://res.cloudinary.com/e3wn4cfq/image/upload/c_scale,w_600/dpr_auto/q_auto/f_auto/dt_cover-portrait.png",
+    // substitua pela URL da sua capa https://res.cloudinary.com/e3wn4cfq/image/upload/c_scale,w_1200/dpr_auto/q_auto:best/f_auto/dt_cover-portrait.png
     screenshots: [
       "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787273359/ui_mission-select.png",
       "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787273330/ui_customize.png",
@@ -380,7 +380,7 @@ function GameCard({
   const isLaunched = game.status === "launched";
 
   return (
-    <div className="group bg-card flex flex-col overflow-hidden hover:bg-secondary/30 transition-colors duration-300">
+    <div className="group bg-card flex flex-col overflow-hidden hover:bg-violet-950/20 transition-colors duration-500">
       {/* Cover — clickable */}
       <button
         onClick={onOpen}
