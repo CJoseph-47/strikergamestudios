@@ -92,9 +92,9 @@ const games: Game[] = [
     status: "dev",
     itchUrl: "",
     coverImage:
-      "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787271275/dt_cover-square.png",
+      "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787826996/dt_cover-square.png",
     coverImageVertical:
-      "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787125650/dt_cover.png",
+      "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787826996/dt_cover-portrait.png",
     // substitua pela URL da sua capa 720x1280 (9:16)
     screenshots: [
       "https://res.cloudinary.com/e3wn4cfq/image/upload/v1787273359/ui_mission-select.png",
