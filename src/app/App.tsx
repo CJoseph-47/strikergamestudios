@@ -288,7 +288,7 @@ export default function App() {
       {/* ─── GAMES ─── */}
       <section
         id="jogos"
-        className="relative z-10 max-w-6xl mx-auto px-6 pb-24"
+        className="relative z-10 max-w-6xl mx-auto px-6 pb-24 scroll-mt-20"
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-6 border-b border-border">
           <h2
@@ -343,7 +343,7 @@ export default function App() {
           <div className="flex items-center gap-2">
             <Gamepad2 className="w-4 h-4 text-primary/50" />
             <span className="text-muted-foreground text-sm">
-              © 2026 Striker Game Studios. feito com paixão e
+              © {new Date().getFullYear()} Striker Game Studios. feito com paixão e
               muita cafeína
             </span>
           </div>
