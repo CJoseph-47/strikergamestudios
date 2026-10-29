@@ -10,7 +10,6 @@ import {
   HardDrive,
   Tv,
   Info,
-  Pause,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -572,7 +571,6 @@ function GameModal({
   onClose: () => void;
 }) {
   const [activeShot, setActiveShot] = useState<number>(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     setActiveShot(0);
@@ -582,8 +580,7 @@ function GameModal({
     if (
       !game ||
       !game.screenshots ||
-      game.screenshots.length <= 1 ||
-      isPaused
+      game.screenshots.length <= 1
     )
       return;
 
@@ -594,7 +591,7 @@ function GameModal({
     }, 3500);
 
     return () => clearInterval(interval);
-  }, [game, activeShot, isPaused]);
+  }, [game, activeShot]);
 
   if (!game) return null;
   const isLaunched = game.status === "launched";
@@ -612,36 +609,56 @@ function GameModal({
         <Dialog.Overlay className="fixed inset-0 z-40 bg-black/85 backdrop-blur-sm" />
         <Dialog.Content
           aria-describedby={undefined}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-8"
           style={{ fontFamily: "'Nunito', sans-serif" }}
           onClick={onClose}
         >
+          <Dialog.Title className="sr-only">{game.title}</Dialog.Title>
           <div
-            className="relative w-full max-w-7xl bg-card border border-border flex flex-col md:flex-row overflow-hidden"
-            style={{ maxHeight: "90vh" }}
+            className="relative w-full max-w-7xl max-h-[calc(100dvh-1rem)] md:max-h-[90vh] bg-card border border-border flex flex-col md:flex-row overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* ── LEFT: vertical cover (infalível, sem espaço e sem sumir) ── */}
             <div
-              className="relative flex-shrink-0 bg-secondary overflow-hidden aspect-[1360/2048] md:aspect-auto"
-              style={{
-                // Largura EXPLÍCITA — o painel nunca colapsa
-                width:
-                  "min(clamp(240px, 44vw, 800px), calc(90vh * 0.664))",
-              }}
+              className="relative flex-shrink-0 bg-secondary overflow-hidden h-36 sm:h-40 md:h-auto md:aspect-[1360/2048] md:w-[min(clamp(240px,44vw,800px),calc(90vh*0.664))]"
             >
               <img
                 src={verticalSrc}
                 alt={`${game.title} — capa`}
-                className="absolute inset-0 w-full h-full object-cover opacity-85"
+                className="absolute inset-y-0 left-0 w-24 h-full object-contain opacity-85 md:inset-0 md:w-full md:object-cover"
                 onError={(e) => {
                   e.currentTarget.src = game.coverImage; // nunca fica vazio
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-black/30 md:bg-gradient-to-t md:from-black/50 md:to-transparent" />
+
+              <div className="relative z-[1] ml-24 flex h-full flex-col justify-center px-3 pr-11 md:hidden">
+                <h2
+                  className="text-lg leading-tight"
+                  style={{ fontFamily: "'Russo One', sans-serif" }}
+                >
+                  {game.title}
+                </h2>
+                <p
+                  className="mt-1 text-sm text-muted-foreground italic line-clamp-2"
+                  style={{ fontFamily: "'Rajdhani', sans-serif", fontWeight: 500 }}
+                >
+                  {game.tagline}
+                </p>
+                <span
+                  className={`mt-2 w-fit border px-2 py-1 text-[9px] tracking-wider uppercase ${
+                    isLaunched
+                      ? "bg-emerald-950/95 text-emerald-400 border-emerald-700/40"
+                      : "bg-amber-950/95 text-amber-400 border-amber-700/40"
+                  }`}
+                  style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                >
+                  {isLaunched ? "Lançado" : "Em Desenvolvimento"}
+                </span>
+              </div>
 
               {/* Status badge — mantém igual */}
-              <div className="absolute bottom-3 left-3">
+              <div className="absolute bottom-3 left-3 hidden md:block">
                 <span
                   className={`inline-flex items-center gap-1.5 px-2 py-1 text-[10px] tracking-[0.2em] uppercase border ${
                     isLaunched
@@ -667,18 +684,18 @@ function GameModal({
             </div>
 
             {/* ── RIGHT: scrollable info ── */}
-            <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+            <div className="flex-1 flex flex-col min-w-0 min-h-0 overflow-hidden">
               {/* Botão X flutuante no canto superior direito */}
               <Dialog.Close asChild>
-                <button className="absolute top-6 right-6 z-10 w-8 h-8 flex items-center justify-center border border-border bg-card/80 backdrop-blur-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors cursor-pointer rounded-md">
+                <button aria-label="Fechar detalhes" className="absolute top-2 right-2 md:top-6 md:right-6 z-10 w-8 h-8 flex items-center justify-center border border-border bg-card/80 backdrop-blur-sm text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors cursor-pointer rounded-md">
                   <X className="w-4 h-4" />
                 </button>
               </Dialog.Close>
 
-              <div className="flex-1 overflow-y-auto">
-                <div className="p-6">
+              <div className="flex-1 min-h-0 overflow-y-auto">
+                <div className="p-4 sm:p-6">
                   {/* Genre tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-3 pr-8">
+                  <div className="hidden md:flex flex-wrap gap-1.5 mb-3 pr-8">
                     {game.genre.map((g) => (
                       <span
                         key={g}
@@ -693,19 +710,17 @@ function GameModal({
                     ))}
                   </div>
 
-                  <Dialog.Title asChild>
-                    <h2
-                      className="text-2xl leading-tight mb-1"
-                      style={{
-                        fontFamily: "'Russo One', sans-serif",
-                      }}
-                    >
-                      {game.title}
-                    </h2>
-                  </Dialog.Title>
+                  <h2
+                    className="hidden md:block text-2xl leading-tight mb-1"
+                    style={{
+                      fontFamily: "'Russo One', sans-serif",
+                    }}
+                  >
+                    {game.title}
+                  </h2>
 
                   <p
-                    className="text-muted-foreground italic mb-4"
+                    className="hidden md:block text-muted-foreground italic mb-4"
                     style={{
                       fontFamily: "'Rajdhani', sans-serif",
                       fontWeight: 500,
@@ -716,7 +731,7 @@ function GameModal({
                   </p>
 
                   {/* Description */}
-                  <p className="text-foreground/75 text-sm leading-relaxed mb-5">
+                  <p className="text-foreground/75 text-sm sm:text-base leading-relaxed mb-5">
                     {game.fullDescription || game.description}
                   </p>
 
@@ -757,13 +772,7 @@ function GameModal({
                         </p>
 
                         {/* Main screenshot */}
-                        <div
-                          className="relative w-full aspect-video overflow-hidden rounded-lg bg-black/40 border border-border group"
-                          onMouseEnter={() => setIsPaused(true)}
-                          onMouseLeave={() =>
-                            setIsPaused(false)
-                          }
-                        >
+                        <div className="relative w-full aspect-video overflow-hidden rounded-lg bg-black/40 border border-border group">
                           <div
                             className="flex w-full h-full transition-transform duration-500 ease-out"
                             style={{
@@ -795,7 +804,7 @@ function GameModal({
                                     game.screenshots!.length,
                                 )
                               }
-                              className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full text-white/80 hover:text-white hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
+                              className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full text-white/80 hover:text-white hover:bg-black/70 transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100 cursor-pointer"
                             >
                               <ChevronLeft className="w-5 h-5" />
                             </button>
@@ -811,20 +820,12 @@ function GameModal({
                                     game.screenshots!.length,
                                 )
                               }
-                              className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full text-white/80 hover:text-white hover:bg-black/70 transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
+                              className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full text-white/80 hover:text-white hover:bg-black/70 transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100 cursor-pointer"
                             >
                               <ChevronRight className="w-5 h-5" />
                             </button>
                           )}
 
-                          {/* Pause indicator */}
-                          {isPaused && (
-                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                              <div className="bg-black/60 backdrop-blur-sm rounded-full p-3">
-                                <Pause className="w-6 h-6 text-white/80" />
-                              </div>
-                            </div>
-                          )}
                         </div>
 
                         {/* Thumbnails */}
@@ -869,9 +870,9 @@ function GameModal({
                             game.systemRequirements?.[key] ? (
                               <div
                                 key={key}
-                                className="grid grid-cols-[auto_1fr] gap-3 px-3 py-2.5 hover:bg-secondary/30 transition-colors"
+                                className="grid grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] gap-2 sm:gap-3 px-3 py-2.5 hover:bg-secondary/30 transition-colors"
                               >
-                                <div className="flex items-center gap-2 text-muted-foreground w-40">
+                                <div className="flex min-w-0 items-center gap-2 text-muted-foreground sm:w-40">
                                   <span className="text-primary/50 flex-shrink-0">
                                     {icon}
                                   </span>
